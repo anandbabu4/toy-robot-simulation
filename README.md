@@ -16,11 +16,15 @@ Installation:
 -----------
     git clone https://github.com/anandbabu4/toy-robot-simulation.git
 
-Pre-requisites: (commands to install: node_modules, eslint and jest) 
+Pre-requisites: (commands to install: node_modules, eslint and jest)
 -----------
     npm install
     npm install eslint --save-dev
     npm install --save-dev jest
+
+Run lint:
+-----------
+    npm run lint
 
 Run unit test: (coverage report displayed in CLI)
 -----------
@@ -34,7 +38,7 @@ Run program with input file: (exclude folder path)
 Example Input and Output
 ------------------------
 
-### Example a
+### Example a: test1.txt
 
     PLACE 0,0,NORTH
     MOVE
@@ -44,7 +48,7 @@ Expected output:
 
     0,1,NORTH
 
-### Example b
+### Example b: test2.txt
 
     PLACE 0,0,NORTH
     LEFT
@@ -54,7 +58,7 @@ Expected output:
 
     0,0,WEST
 
-### Example c
+### Example c: test3.txt
 
     PLACE 1,2,EAST
     MOVE
