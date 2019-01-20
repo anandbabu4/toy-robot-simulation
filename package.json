@@ -1,0 +1,24 @@
+{
+  "name": "toyrobo",
+  "version": "1.0.0",
+  "description": "Toy Robo Simulator",
+  "main": "robo.js",
+  "scripts": {
+    "test": "jest",
+    "jest": "jest --no-cache --config=jest.config.json",
+    "lint": "eslint robo.js ./src --fix",
+    "file": "node robo.js"
+  },
+  "jest" : {
+    "collectCoverage": true
+  },
+  "keywords": [
+    "Solution to control Toy Robot in a table of 5x5 unit"
+  ],
+  "author": "Anand",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "jest": "^23.6.0"
+  }
+}
