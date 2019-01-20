@@ -17,6 +17,7 @@ Note: This application is built with Node.js.
 Installation:
 -----------
     git clone https://github.com/anandbabu4/toy-robot-simulation.git
+    cd toy-robot-simulation
 
 Pre-requisites: (commands to install: node_modules, eslint and jest)
 -----------
@@ -32,7 +33,7 @@ Run unit test: (coverage report displayed in CLI)
 -----------
     npm test
 
-Run program with input file: (exclude folder path)
+Run program with input file: (place your input file inside ./data. Exclude folder path in run cmd)
 -----------
     npm run file <filename>
     eg: npm run file test1.txt
