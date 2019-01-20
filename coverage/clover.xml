@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1547965650149" clover="3.2.0">
-  <project timestamp="1547965650149" name="All files">
+<coverage generated="1547966508753" clover="3.2.0">
+  <project timestamp="1547966508754" name="All files">
     <metrics statements="60" coveredstatements="60" conditionals="36" coveredconditionals="32" methods="9" coveredmethods="9" elements="105" coveredelements="101" complexity="0" loc="60" ncloc="60" packages="1" files="2" classes="2">
       <file name="face-map.js" path="C:\Users\sugan\Projects\toy-robot-simulation\src\face-map.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

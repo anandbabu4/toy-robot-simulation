@@ -12,6 +12,8 @@ LEFT
 RIGHT
 REPORT
 
+Note: This application is built with Node.js.
+
 Installation:
 -----------
     git clone https://github.com/anandbabu4/toy-robot-simulation.git
