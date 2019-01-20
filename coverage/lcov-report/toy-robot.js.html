@@ -168,8 +168,11 @@
 123
 124
 125
-126</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,9 +186,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,6 +200,7 @@
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,8 +218,8 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -224,7 +230,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -262,13 +267,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -284,7 +289,6 @@
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -294,76 +298,79 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
-let resultFace    = require("./face-map");
+let resultFace = require("./face-map");
 /**
  * ToyRobot class 
  */
-class ToyRobot{
+class ToyRobot {
 &nbsp;
-	constructor(){
+	// set default.
+	constructor() {
 		this.placed = false;
-		this.x     = null;
-		this.y     = null;
-		this.face  = null; 
+		this.x = null;
+		this.y = null;
+		this.face = null;
 	}
 &nbsp;
-	loadData(data){
+	// process input data.
+	loadData(data) {
 		var inpArray = data.toString().split("\n");
-		for(var i in inpArray) {
+		for (var i in inpArray) {
 			this.handleCmd(inpArray[i].toUpperCase());
 		}
 	}
 &nbsp;
-	checkPlaceCmd(cmd){
+	// check valid place cmd.
+	checkPlaceCmd(cmd) {
 		var inputCmd = cmd.split(" ")[0];
-		if ( inputCmd === "PLACE" ) {
+		if (inputCmd === "PLACE") {
 			return true;
 		}
 		return false;
 	}
 &nbsp;
-	placeRobot(cmd){
-		var arr = cmd.split(",").map(function(d) {
+	// place robot if valid cmd.
+	placeRobot(cmd) {
+		var arr = cmd.split(",").map(function (d) {
 			return d.replace("PLACE ", "");
 		});
 &nbsp;
 		if (!resultFace.hasOwnProperty(arr[2].toLowerCase())) return false;
 &nbsp;
-		<span class="missing-if-branch" title="else path not taken" >E</span>if (parseInt(arr[0]) &gt;= 0 &amp;&amp; 
-        parseInt(arr[0]) &lt;= 4 &amp;&amp; 
-        parseInt(arr[1]) &gt;= 0 &amp;&amp; 
-        parseInt(arr[1]) &lt;= 4) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (parseInt(arr[0]) &gt;= 0 &amp;&amp;
+			parseInt(arr[0]) &lt;= 4 &amp;&amp;
+			parseInt(arr[1]) &gt;= 0 &amp;&amp;
+			parseInt(arr[1]) &lt;= 4) {
 			this.x = parseInt(arr[0]);
 			this.y = parseInt(arr[1]);
 			this.placed = true;
 			this.face = arr[2];
-			//console.log(this);     
 			return this;
 		}
-    
+&nbsp;
 	}
 &nbsp;
-	handleCmd(cmd){
+	// check cmd line by line.
+	handleCmd(cmd) {
 		var inputCmd = cmd.trim().toUpperCase();
-		switch(true){
+		switch (true) {
 		case (this.checkPlaceCmd(inputCmd)):
 			this.placeRobot(inputCmd);
 			break;
-		case ((inputCmd == "LEFT") || (inputCmd == "RIGHT")) :
-			//console.log('turn:' + inputCmd);
+		case ((inputCmd == "LEFT") || (inputCmd == "RIGHT")):
 			this.turnDirection(inputCmd);
 			break;
-		case (inputCmd === "MOVE") :
+		case (inputCmd === "MOVE"):
 			this.moveAhead();
 			break;
-		case (inputCmd === "REPORT") : 
+		case (inputCmd === "REPORT"):
 			this.reportPosition();
 			break;
 		}
 	}
 &nbsp;
+	// move towards current facing.
 	moveAhead() {
-		//console.log('move: :' + this.placed);
 		if (this.placed) {
 			switch (this.face.toLowerCase()) {
 			case "north":
@@ -385,35 +392,34 @@ class ToyRobot{
 			}
 		}
 	}
-  
+&nbsp;
+	// report current position.
 	reportPosition() {
 		if (!this.placed) {
 			process.stdout.write("Robot is not placed yet. \n");
 			return;
 		}
-        
+&nbsp;
 		process.stdout.write(
-			"##########################################################" + "\n" +
-            "Report: " + this.x + "," + this.y + "," + this.face.toUpperCase() + "\n" +
-            "##########################################################"); 
+			"################################################" + "\n" +
+			"Report: " + this.x + "," + this.y + "," + this.face.toUpperCase() + "\n" +
+			"################################################");
 &nbsp;
 	}
 &nbsp;
-&nbsp;
+	// turn 90 deg if valid
 	turnDirection(cmd) {
-		// Ignore command if robot is not yet placed
 		if (!this.placed) {
 			return;
 		}
 &nbsp;
 		let currFace = this.face.toLowerCase();
-		let currCmd  = cmd.toLowerCase();
+		let currCmd = cmd.toLowerCase();
 		let dirKey = resultFace.hasOwnProperty(currFace);
-		//console.log('dir key: '+ dirKey);
-		<span class="missing-if-branch" title="else path not taken" >E</span>if(dirKey){
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (dirKey) {
 			this.face = resultFace[currFace][currCmd];
 		}
-    
+&nbsp;
 		return this;
 	}
 }
@@ -424,7 +430,7 @@ module.exports = ToyRobot;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jan 20 2019 11:40:12 GMT+0800 (Singapore Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jan 20 2019 13:47:18 GMT+0800 (Singapore Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>

@@ -9,7 +9,7 @@
     "lint": "eslint robo.js ./src --fix",
     "file": "node robo.js"
   },
-  "jest" : {
+  "jest": {
     "collectCoverage": true
   },
   "keywords": [
