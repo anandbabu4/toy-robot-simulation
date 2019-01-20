@@ -1,25 +1,35 @@
 # toy-robot-simulation
-The application is simulation of a toy robot moving on a square table top
+The application is a simulation of a toy robot moving on a square table top, of dimensions 5
+units x 5 units. There are no other obstructions on the table surface. The robot is free to
+roam around the surface of the table, but must be prevented from falling to destruction.
+Any movement that would result in the robot falling from the table must be prevented,
+however further valid movement commands must still be allowed.
+
+Allowed commands:
+PLACE X,Y,F
+MOVE
+LEFT
+RIGHT
+REPORT
 
 Installation:
 -----------
     git clone https://github.com/anandbabu4/toy-robot-simulation.git
 
-Pre-reqisites: (if node_modules, eslint and jest is not installed)
+Pre-requisites: (commands to install: node_modules, eslint and jest) 
 -----------
     npm install
     npm install eslint --save-dev
     npm install --save-dev jest
 
-Run unit test: (coverage report displayed in cli)
+Run unit test: (coverage report displayed in CLI)
 -----------
     npm test
 
-Run program with input file (ignore the data folder name just filename is enough)
+Run program with input file: (exclude folder path)
 -----------
-    npm run file test1.txt
-    npm run file test2.txt
-    npm run file test3.txt
+    npm run file <filename>
+    eg: npm run file test1.txt
 
 Example Input and Output
 ------------------------
